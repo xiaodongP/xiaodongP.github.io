@@ -1,5 +1,5 @@
 ---
-title: 《Quadric Surface Extraction by Variational Shape Approximation》-Reading
+title: VSA 源码调试笔记（一）：整体流程
 date: 2025-12-01
 categories: [Graphics, VSA]
 tags: [geometry-processing, segmentation, code-reading]
