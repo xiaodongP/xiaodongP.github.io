@@ -36,7 +36,7 @@
   background: var(--main-border-color, #e9ecef);
 }
 
-.visitor-counter--loading .visitor-counter__value {
+.visitor-counter--pending .visitor-counter__value {
   color: var(--text-muted-color, #6c757d);
   font-weight: 400;
 }

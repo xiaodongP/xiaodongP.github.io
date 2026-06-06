@@ -1,7 +1,5 @@
 (function () {
-  var busuanziSrc = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-
-  function createItem(label, id) {
+  function createItem(label) {
     var item = document.createElement('span');
     item.className = 'visitor-counter__item';
 
@@ -11,8 +9,7 @@
 
     var valueNode = document.createElement('span');
     valueNode.className = 'visitor-counter__value';
-    valueNode.id = id;
-    valueNode.textContent = '-';
+    valueNode.textContent = '待启用';
 
     item.appendChild(labelNode);
     item.appendChild(valueNode);
@@ -32,32 +29,17 @@
     }
 
     var counter = document.createElement('aside');
-    counter.className = 'visitor-counter visitor-counter--loading';
+    counter.className = 'visitor-counter visitor-counter--pending';
     counter.setAttribute('aria-label', '访问统计');
+    counter.setAttribute('title', '访问统计功能暂未启用');
 
-    counter.appendChild(createItem('访客', 'busuanzi_value_site_uv'));
+    counter.appendChild(createItem('访客'));
     counter.appendChild(createDivider());
-    counter.appendChild(createItem('访问', 'busuanzi_value_site_pv'));
+    counter.appendChild(createItem('访问'));
     counter.appendChild(createDivider());
-    counter.appendChild(createItem('本文', 'busuanzi_value_page_pv'));
+    counter.appendChild(createItem('本文'));
 
     document.body.appendChild(counter);
-    loadBusuanzi(counter);
-  }
-
-  function loadBusuanzi(counter) {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = busuanziSrc;
-    script.onload = function () {
-      counter.classList.remove('visitor-counter--loading');
-    };
-    script.onerror = function () {
-      counter.classList.remove('visitor-counter--loading');
-      counter.setAttribute('title', '访问统计暂时不可用');
-    };
-
-    document.body.appendChild(script);
   }
 
   if (document.readyState === 'loading') {
