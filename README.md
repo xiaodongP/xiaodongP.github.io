@@ -48,3 +48,25 @@ tags: [mesh, vsa, code-reading]
 ## 部署
 
 推送到 `main` 或 `master` 后，GitHub Actions 会自动构建并部署到 GitHub Pages。
+
+## 访问统计
+
+站点使用 Chirpy 内置的 Umami Analytics 配置来统计访问人数和访问来源地区。Umami 可以在后台查看页面浏览量、访客数、来源、设备和国家/地区等信息。
+
+启用步骤：
+
+1. 注册或登录 [Umami Cloud](https://cloud.umami.is/)，也可以使用自己部署的 Umami。
+2. 添加网站 `xiaodongP.github.io`。
+3. 复制 Umami 后台生成的 `Website ID`。
+4. 在 `_config.yml` 中填写：
+
+```yaml
+analytics:
+  umami:
+    id: "你的 Website ID"
+    domain: https://cloud.umami.is
+```
+
+如果使用自部署 Umami，把 `domain` 改成自己的 Umami 地址，例如 `https://analytics.example.com`。
+
+注意：统计脚本通常只会在 production 构建中生效。GitHub Actions 部署时已经设置了 `JEKYLL_ENV=production`。
