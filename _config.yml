@@ -62,7 +62,7 @@ analytics:
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
-    id: # fill in your Umami Website ID
+    id: 32c850ef-d7f6-4584-9b0b-6d97dc9e3922 # fill in your Umami Website ID
     domain: https://cloud.umami.is # use your self-hosted Umami origin if needed
   matomo:
     id: # fill in your Matomo ID
